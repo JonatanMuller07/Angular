@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title class="titulo">Detalles usuario</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="header-image"></div>
+  <div class="main-content" text-center text-wrap style="position:absolute;">
+    <img [src]="user.picture.medium" class="img">
+    <h2>{{ user.name.first | uppercase }}</h2>
+    <p> Developer • {{user.location.country}} </p>
+    <p class="descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+    <hr>
+
+    <ion-list>
+      <ion-item class="item-block" no-lines>
+        <ion-icon class="icono" item-start color="primary" name="mail"></ion-icon>
+        <ion-label class="label">
+          <p> Email </p>
+          {{user.email}}
+        </ion-label>
+      </ion-item>
+      <ion-item class="item-block" no-lines>
+        <ion-icon class="icono" item-start name="phone-landscape"></ion-icon>
+        <ion-label class="label">
+          <p> Telefono </p>
+          {{user.phone}}
+        </ion-label>
+      </ion-item>
+      <ion-item class="item-block" no-lines>
+        <ion-icon class="icono" item-start color="secondary" name="logo-whatsapp"></ion-icon>
+        <ion-label class="label">
+          <p> Whatsapp </p>
+          {{user.cell}}
+        </ion-label>
+      </ion-item>
+      <ion-item class="item-block" no-lines>
+        <ion-icon class="icono" item-start name="pin"></ion-icon>
+        <ion-label class="label">
+          <p> Direccion </p>
+          {{user.location.street.name}} {{user.location.street.number}}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <h2> Redes Sociales </h2>
+
+    <button ion-button class="botones-redes">
+      <ion-icon class="iconos-redes" name="logo-linkedin" item-left role="img"></ion-icon>
+      <span> LinkedIn </span>
+    </button>
+    <button ion-button class="botones-redes">
+      <ion-icon class="iconos-redes" name="logo-facebook" item-start role="img"></ion-icon>
+      <span> Facebook </span>
+    </button>
+    <button ion-button class="botones-redes" color="danger">
+      <ion-icon class="iconos-redes" name="logo-youtube" item-start role="img"></ion-icon>
+      <span> Youtube </span>
+    </button>
+
+  </div>
+</ion-content>

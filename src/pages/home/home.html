@@ -1,0 +1,75 @@
+<ion-header class="header">
+  <ion-navbar class="navbar" color="primary">
+    <button ion-button menutoggle class="boton-desplegable" (click)="openMenu()">
+      <ion-icon name="menu" rol="img" class="icon" aria-label="menu"></ion-icon>
+    </button>
+    <div class="toolbar-content">
+      <ion-title class="titulo">Random users</ion-title>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <button (click)="loadPromise()">
+        <ion-label>Promise</ion-label>
+    </button>
+    <button (click)="loadUser()">
+        <ion-label>Observable</ion-label>
+    </button> -->
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingText="Actualizando.."></ion-refresher-content>
+  </ion-refresher>
+  <div class="content-list">
+    <ion-list>
+      <ion-item *ngFor="let user of users" (click)="userDetail(user)">
+        <ion-avatar item-start>
+          <img [src]="user.picture.medium">
+        </ion-avatar>
+        <h2>{{ user.name.first | uppercase }}</h2>
+        <p>{{ user.email }}</p>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+
+<ion-menu [content]="menu">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <img height='30px' src="../../assets/imgs/logo_osde.svg" color="light">
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="menu">
+      <ion-list class="list">
+        <button class="inactivePage menu-botones">
+          <div class="menu-iconos">
+            <ion-icon class="icon" name="home" role="img"></ion-icon>
+          </div>
+          <div class="menu-label">
+            <ion-label>Home</ion-label>
+          </div>
+        </button>
+        <button class="inactivePage menu-botones">
+          <div class="menu-iconos">
+            <ion-icon class="icon" name="star" role="img"></ion-icon>
+          </div>
+          <div class="menu-label">
+            <ion-label>Post</ion-label>
+          </div>
+        </button>
+        <button class="inactivePage menu-botones" (click)="logOut()">
+          <div class="menu-iconos">
+            <ion-icon class="icon" name="exit" role="img"></ion-icon>
+          </div>
+          <div class="menu-label">
+            <ion-label>Cerrar Sesion</ion-label>
+          </div>
+        </button>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="menuDesplegable" #menu [root]="rootPage"></ion-nav>
